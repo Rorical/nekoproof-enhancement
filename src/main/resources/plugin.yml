@@ -2,5 +2,6 @@ main: ${PACKAGE}.${NAME}
 name: ${NAME}
 version: "${VERSION}"
 api-version: "1.21.11"
+folia-supported: true
 author: Rorical
 description: Vanilla enhancements for the nekoproof Minecraft server

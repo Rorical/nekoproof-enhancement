@@ -80,10 +80,11 @@ public class CauldronDispenserListener implements Listener {
 
     event.setCancelled(true);
 
-    plugin.getServer().getScheduler().runTask(plugin, () -> {
-      target.setType(Material.CAULDRON);
-      replaceBucket(dispenserBlock, Material.BUCKET, filledBucket);
-    });
+    plugin.getServer().getRegionScheduler().run(plugin,
+        target.getLocation(), task -> {
+          target.setType(Material.CAULDRON);
+          replaceBucket(dispenserBlock, Material.BUCKET, filledBucket);
+        });
   }
 
   private void handleFill(BlockDispenseEvent event,
@@ -94,17 +95,18 @@ public class CauldronDispenserListener implements Listener {
 
     event.setCancelled(true);
 
-    plugin.getServer().getScheduler().runTask(plugin, () -> {
-      if (bucketType == Material.LAVA_BUCKET) {
-        target.setType(Material.LAVA_CAULDRON);
-      } else {
-        target.setType(Material.WATER_CAULDRON);
-        Levelled levelled = (Levelled) target.getBlockData();
-        levelled.setLevel(levelled.getMaximumLevel());
-        target.setBlockData(levelled);
-      }
-      replaceBucket(dispenserBlock, bucketType, Material.BUCKET);
-    });
+    plugin.getServer().getRegionScheduler().run(plugin,
+        target.getLocation(), task -> {
+          if (bucketType == Material.LAVA_BUCKET) {
+            target.setType(Material.LAVA_CAULDRON);
+          } else {
+            target.setType(Material.WATER_CAULDRON);
+            Levelled levelled = (Levelled) target.getBlockData();
+            levelled.setLevel(levelled.getMaximumLevel());
+            target.setBlockData(levelled);
+          }
+          replaceBucket(dispenserBlock, bucketType, Material.BUCKET);
+        });
   }
 
   private void replaceBucket(Block dispenserBlock,
