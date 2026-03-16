@@ -1,10 +1,12 @@
 package com.rorical.nekoproofenhancement;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.PrepareItemCraftEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.Damageable;
@@ -47,10 +49,22 @@ public final class ElytraDuplicationRecipe implements Listener {
   }
 
   /**
+   * Unlocks the recipe for players when they join.
+   *
+   * @param event the player join event
+   */
+  @EventHandler
+  public void onPlayerJoin(PlayerJoinEvent event) {
+    event.getPlayer().discoverRecipe(recipeKey);
+  }
+
+  /**
    * Cancels the craft if the input elytra is damaged.
    *
    * @param event the prepare item craft event
    */
+  @SuppressFBWarnings(value = "NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE",
+      justification = "getRecipe() null is handled by instanceof check")
   @EventHandler
   public void onPrepareCraft(PrepareItemCraftEvent event) {
     if (!(event.getRecipe() instanceof ShapedRecipe shaped)) {
