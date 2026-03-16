@@ -8,6 +8,10 @@ A PaperMC plugin that provides vanilla enhancements for the **nekoproof** Minecr
 
 NekoproofEnhancement is a collection of quality-of-life improvements and gameplay tweaks built on top of vanilla Minecraft mechanics for the nekoproof server.
 
+## Features
+
+- **Elytra Duplication** — Craft 2 elytra by placing an elytra in the center of a crafting table surrounded by 8 Phantom Membranes.
+
 ## Requirements
 
 - Java 21+
