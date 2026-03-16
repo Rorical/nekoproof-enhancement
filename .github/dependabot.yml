@@ -7,6 +7,8 @@ updates:
     commit-message:
       prefix: "build:"
     target-branch: "main"
+    reviewers:
+      - "Rorical"
   - package-ecosystem: "gradle"
     directory: "/"
     schedule:
@@ -14,3 +16,5 @@ updates:
     commit-message:
       prefix: "deps:"
     target-branch: "main"
+    reviewers:
+      - "Rorical"

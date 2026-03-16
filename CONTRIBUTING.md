@@ -15,12 +15,4 @@
    * List any changes made in your description
    * Link any issues that your pull request is related to as well
 
-### Example:
-```text
-Create scoreboard for total points
-
-ADDED - Scoreboard displayed in-game at game end  
-CHANGED - Updated `StorageManager` class to persist scoreboard data
-```
-
 After the pull request has been reviewed, approved, and passes all automated checks, it will be merged into main.
