@@ -11,6 +11,7 @@ NekoproofEnhancement is a collection of quality-of-life improvements and gamepla
 ## Features
 
 - **Elytra Duplication** — Craft 2 elytra by placing an elytra in the center, a Diamond at top center, and Phantom Membranes in the remaining slots.
+- **Iron Golem Egg Crafting** — Craft an Iron Golem spawn egg using the same T-shape as building an iron golem: Carved Pumpkin on top, Iron Blocks in a cross.
 - **Dispenser Cauldron Interaction** — Dispensers with buckets can interact with cauldrons like source blocks: empty buckets collect from lava/full water cauldrons, and water/lava buckets fill empty cauldrons.
 
 ## Requirements

@@ -1,6 +1,5 @@
 package com.rorical.nekoproofenhancement;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.event.EventHandler;
@@ -63,8 +62,6 @@ public final class ElytraDuplicationRecipe implements Listener {
    *
    * @param event the prepare item craft event
    */
-  @SuppressFBWarnings(value = "NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE",
-      justification = "getRecipe() null is handled by instanceof check")
   @EventHandler
   public void onPrepareCraft(PrepareItemCraftEvent event) {
     if (!(event.getRecipe() instanceof ShapedRecipe shaped)) {
