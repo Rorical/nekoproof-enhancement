@@ -2,8 +2,12 @@ package com.rorical.nekoproofenhancement;
 
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.PrepareItemCraftEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -11,10 +15,14 @@ import org.bukkit.plugin.java.JavaPlugin;
  *
  * <p>Recipe: Elytra in the center, Diamond at top center,
  * remaining slots filled with Phantom Membrane. Produces 2 elytra.
+ * The input elytra must have full durability.
  */
-public final class ElytraDuplicationRecipe {
+public final class ElytraDuplicationRecipe implements Listener {
 
-  private ElytraDuplicationRecipe() {
+  private final NamespacedKey recipeKey;
+
+  private ElytraDuplicationRecipe(NamespacedKey recipeKey) {
+    this.recipeKey = recipeKey;
   }
 
   /**
@@ -34,5 +42,32 @@ public final class ElytraDuplicationRecipe {
     recipe.setIngredient('E', Material.ELYTRA);
 
     plugin.getServer().addRecipe(recipe);
+    plugin.getServer().getPluginManager().registerEvents(
+        new ElytraDuplicationRecipe(key), plugin);
+  }
+
+  /**
+   * Cancels the craft if the input elytra is damaged.
+   *
+   * @param event the prepare item craft event
+   */
+  @EventHandler
+  public void onPrepareCraft(PrepareItemCraftEvent event) {
+    if (!(event.getRecipe() instanceof ShapedRecipe shaped)) {
+      return;
+    }
+    if (!shaped.getKey().equals(recipeKey)) {
+      return;
+    }
+
+    for (ItemStack item : event.getInventory().getMatrix()) {
+      if (item != null && item.getType() == Material.ELYTRA) {
+        if (item.getItemMeta() instanceof Damageable damageable
+            && damageable.getDamage() > 0) {
+          event.getInventory().setResult(null);
+        }
+        return;
+      }
+    }
   }
 }
