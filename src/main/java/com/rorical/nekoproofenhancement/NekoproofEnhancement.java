@@ -14,6 +14,8 @@ public class NekoproofEnhancement extends JavaPlugin {
     saveDefaultConfig();
 
     ElytraDuplicationRecipe.register(this);
+    getServer().getPluginManager().registerEvents(
+        new CauldronDispenserListener(this), this);
 
     getLogger().info("NekoproofEnhancement enabled.");
   }
