@@ -9,8 +9,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 /**
  * Registers a crafting recipe that duplicates an elytra.
  *
- * <p>Recipe: Elytra in the center, surrounded by Phantom Membrane.
- * Produces 2 elytra.
+ * <p>Recipe: Elytra in the center, Diamond at top center,
+ * remaining slots filled with Phantom Membrane. Produces 2 elytra.
  */
 public final class ElytraDuplicationRecipe {
 
@@ -28,8 +28,9 @@ public final class ElytraDuplicationRecipe {
     ItemStack result = new ItemStack(Material.ELYTRA, 2);
     ShapedRecipe recipe = new ShapedRecipe(key, result);
 
-    recipe.shape("MMM", "MEM", "MMM");
+    recipe.shape("MDM", "MEM", "MMM");
     recipe.setIngredient('M', Material.PHANTOM_MEMBRANE);
+    recipe.setIngredient('D', Material.DIAMOND);
     recipe.setIngredient('E', Material.ELYTRA);
 
     plugin.getServer().addRecipe(recipe);

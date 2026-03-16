@@ -10,7 +10,7 @@ NekoproofEnhancement is a collection of quality-of-life improvements and gamepla
 
 ## Features
 
-- **Elytra Duplication** — Craft 2 elytra by placing an elytra in the center of a crafting table surrounded by 8 Phantom Membranes.
+- **Elytra Duplication** — Craft 2 elytra by placing an elytra in the center, a Diamond at top center, and Phantom Membranes in the remaining slots.
 
 ## Requirements
 
