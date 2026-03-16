@@ -12,6 +12,7 @@ NekoproofEnhancement is a collection of quality-of-life improvements and gamepla
 
 - **Elytra Duplication** — Craft 2 elytra by placing an elytra in the center, a Diamond at top center, and Phantom Membranes in the remaining slots.
 - **Iron Golem Egg Crafting** — Craft an Iron Golem spawn egg using the same T-shape as building an iron golem: Carved Pumpkin on top, Iron Blocks in a cross.
+- **Villager Trade Refresh** — Right-click a villager with an Emerald Block to reset all trade counts, consuming one block. The villager shows a heart particle effect.
 - **Dispenser Cauldron Interaction** — Dispensers with buckets can interact with cauldrons like source blocks: empty buckets collect from lava/full water cauldrons, and water/lava buckets fill empty cauldrons.
 
 ## Requirements
