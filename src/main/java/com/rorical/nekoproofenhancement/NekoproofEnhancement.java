@@ -19,6 +19,8 @@ public class NekoproofEnhancement extends JavaPlugin {
         new CauldronDispenserListener(this), this);
     getServer().getPluginManager().registerEvents(
         new VillagerTradeRefreshListener(), this);
+    getServer().getPluginManager().registerEvents(
+        new EnderPearlWellListener(this), this);
 
     getLogger().info("NekoproofEnhancement enabled.");
   }
